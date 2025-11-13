@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakFlow - Portfolio Project par Beydi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+        }
+
+        .bg-gradient-to-br {
+            background: linear-gradient(to bottom right, #eff6ff, #ffffff, #faf5ff);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(to bottom right, #2563eb, #7c3aed);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            margin-bottom: 2rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-large {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary-large:hover {
+            background: #1d4ed8;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #111827;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-image {
+            margin-bottom: 1rem;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .icon-blue {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .icon-purple {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+
+        .icon-green {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .about-container {
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .story-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .story-text {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .member-avatar span {
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .member-name {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .member-role {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            padding: 0.5rem 1rem;
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .github {
+            background: #333;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .repo-section {
+            text-align: center;
+        }
+
+        .repo-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .repo-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #333;
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .repo-link:hover {
+            background: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 5rem 0;
+        }
+
+        .demo-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-content {
+            text-align: center;
+        }
+
+        .play-icon {
+            width: 4rem;
+            height: 4rem;
+            color: #9ca3af;
+            margin: 0 auto 1rem;
+        }
+
+        .youtube-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff0000;
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-link:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: #bfdbfe;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: #2563eb;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-white:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .footer-bottom a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #9ca3af;
+        }
+
+        /* Icons */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-large {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br">
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <div class="nav-flex">
+                    <div class="logo-section">
+                        <div class="logo">
+                            <span>SF</span>
+                        </div>
+                        <span class="brand-name">SpeakFlow</span>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#features" class="nav-link">Fonctionnalités</a>
+                        <a href="#about" class="nav-link">À propos</a>
+                        <a href="#demo" class="nav-link">Démo</a>
+                        <a href="https://your-deployed-app.com" class="btn-primary" target="_blank">Ouvrir l'App</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 0. INTRO SECTION -->
+        <section class="hero container fade-in">
+            <div class="hero-content">
+                <!-- Large Cover Image -->
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" 
+                         alt="SpeakFlow - Gestion de discussions en temps réel">
+                </div>
+                
+                <!-- Project Name -->
+                <h1 class="hero-title">
+                    <span class="gradient-text">SpeakFlow</span>
+                </h1>
+                
+                <!-- One-line Description -->
+                <p class="hero-subtitle">
+                    La plateforme collaborative qui révolutionne la gestion des files d'attente de parole pour vos réunions et événements virtuels en temps réel.
+                </p>
+                
+                <!-- Navigation Button to Deployed App -->
+                <div class="hero-buttons">
+                    <a href="https://your-deployed-app.com" class="btn-large btn-primary-large" target="_blank">
+                        🚀 Découvrir l'Application
+                    </a>
+                    <a href="#features" class="btn-large btn-secondary">
+                        Explorer les fonctionnalités
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. FEATURES SECTION -->
+        <section id="features" class="features container">
+            <h2 class="section-title">
+                ⭐ 3 Fonctionnalités Clés
+            </h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <!-- Image/Screenshot -->
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" 
+                             alt="Interface de gestion de file d'attente">
+                    </div>
+                    <div class="feature-icon icon-blue">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <!-- Feature Name -->
+                    <h3 class="feature-title">
+                        🎯 Gestion intelligente de file d'attente
+                    </h3>
+                    <!-- Feature Description -->
+                    <p class="feature-description">
+                        Système avancé de gestion des tours de parole avec interface intuitive. Les participants peuvent rejoindre la queue, voir leur position en temps réel, et les modérateurs contrôlent l'ordre avec des outils puissants de réorganisation.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <!-- Image/Screenshot -->
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" 
+                             alt="Communication vidéo en temps réel">
+                    </div>
+                    <div class="feature-icon icon-purple">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <!-- Feature Name -->
+                    <h3 class="feature-title">
+                        🎥 Communication Audio/Vidéo LiveKit
+                    </h3>
+                    <!-- Feature Description -->
+                    <p class="feature-description">
+                        Intégration complète avec LiveKit pour des communications ultra-fluides. Support de la vidéo HD, audio cristallin, partage d'écran, et fonctionnalités avancées comme la suppression de bruit et l'optimisation de bande passante.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <!-- Image/Screenshot -->
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" 
+                             alt="Sécurité et protection des données">
+                    </div>
+                    <div class="feature-icon icon-green">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <!-- Feature Name -->
+                    <h3 class="feature-title">
+                        🔐 Sécurité et confidentialité renforcées
+                    </h3>
+                    <!-- Feature Description -->
+                    <p class="feature-description">
+                        Architecture sécurisée avec authentification Supabase, chiffrement end-to-end des communications, gestion granulaire des permissions, et conformité RGPD pour protéger toutes vos données sensibles.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">
+                    📖 À propos du projet
+                </h2>
+                
+                <div class="about-container">
+                    <!-- Personal Story -->
+                    <div class="story-card">
+                        <h3 class="story-title">🎯 L'inspiration derrière SpeakFlow</h3>
+                        <p class="story-text">
+                            En tant qu'étudiant à <strong>Holberton School</strong>, j'ai rapidement remarqué les défis récurrents lors des sessions de groupe et des présentations en ligne. Les participants se coupaient constamment la parole, certains n'osaient pas intervenir, et les modérateurs perdaient le contrôle des discussions.
+                        </p>
+                        <p class="story-text">
+                            L'idée de SpeakFlow est née lors d'une session de code review particulièrement chaotique où 12 étudiants tentaient de présenter leurs solutions simultanément. Je me suis dit : <em>"Il doit exister une meilleure façon d'organiser la prise de parole collaborative."</em>
+                        </p>
+                        <p class="story-text">
+                            Ce projet représente <strong>3 mois de développement intensif</strong>, combinant mes nouvelles compétences en Node.js, Socket.IO, React, et architecture cloud. Il constitue mon Portfolio Project pour <a href="https://www.holbertonschool.com" target="_blank" style="color: #2563eb; text-decoration: underline; font-weight: 600;">Holberton School</a>, démontrant ma maîtrise du développement full-stack et des technologies temps réel.
+                        </p>
+                    </div>
+
+                    <!-- Team Member Section -->
+                    <div class="team-card">
+                        <h3 class="story-title" style="text-align: center; margin-bottom: 2rem;">👨‍💻 L'équipe de développement</h3>
+                        
+                        <div class="team-member">
+                            <div>
+                                <div class="member-avatar">
+                                    <span>B</span>
+                                </div>
+                                <h4 class="member-name">Beydi</h4>
+                                <p class="member-role">Développeur Full-Stack & Créateur</p>
+                                
+                                <!-- Social Links -->
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="social-link linkedin">
+                                        LinkedIn
+                                    </a>
+                                    <a href="https://github.com/your-github" target="_blank" class="social-link github">
+                                        GitHub
+                                    </a>
+                                    <a href="https://twitter.com/your-twitter" target="_blank" class="social-link twitter">
+                                        Twitter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Repository -->
+                    <div class="repo-section">
+                        <h3 class="repo-title">🔗 Code source du projet</h3>
+                        <a href="https://github.com/your-username/speakflow" target="_blank" class="repo-link">
+                            📂 Explorer le repository GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMO SECTION -->
+        <section id="demo" class="demo-section container">
+            <h2 class="section-title">
+                🎬 Démonstration vidéo
+            </h2>
+            <div class="demo-container">
+                <div class="demo-card">
+                    <p class="demo-description">
+                        Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
+                    </p>
+                    
+                    <!-- YouTube Video Placeholder -->
+                    <div class="video-placeholder">
+                        <div class="video-content">
+                            <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <p style="color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">Vidéo de démonstration YouTube</p>
+                            <p style="color: #9ca3af; font-size: 0.9rem;">Remplacez par votre URL de démonstration</p>
+                        </div>
+                    </div>
+                    
+                    <!-- YouTube Link -->
+                    <a href="https://youtube.com/watch?v=your-video-id" target="_blank" class="youtube-link">
+                        🎥 Regarder la démo sur YouTube
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta container">
+            <div class="cta-box">
+                <h2 class="cta-title">
+                    🚀 Prêt à tester SpeakFlow ?
+                </h2>
+                <p class="cta-subtitle">
+                    Découvrez une nouvelle approche révolutionnaire pour gérer vos discussions collaboratives et vos files d'attente de parole en temps réel.
+                </p>
+                <a href="https://your-deployed-app.com" class="btn-white" target="_blank">
+                    Essayer l'application maintenant
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>SpeakFlow</h3>
+                        <p>Portfolio Project - Holberton School 2025</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#about">À propos</a>
+                        <a href="https://github.com/your-username/speakflow" target="_blank">GitHub</a>
+                        <a href="https://youtube.com/watch?v=your-video-id" target="_blank">Démo Vidéo</a>
+                        <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 SpeakFlow - Portfolio Project par Beydi | <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple fade-in animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.style.opacity = '1';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

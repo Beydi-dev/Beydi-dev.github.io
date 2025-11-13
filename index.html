@@ -842,38 +842,30 @@
             </div>
         </section>
 
-        <!-- DEMO SECTION -->
-        <section id="demo" class="demo-section container">
-            <h2 class="section-title">
-                🎬 Démonstration vidéo
-            </h2>
-            <div class="demo-container">
-                <div class="demo-card">
-                    <p class="demo-description">
-                        Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
-                    </p>
-                    
-
-<script>
-document.getElementById('videoPlaceholder').addEventListener('click', function() {
-    this.innerHTML = `
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem;">
-            <iframe 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.5rem;"
-                src="https://www.youtube.com/embed/7Bg_Rk7bB4w?autoplay=1" 
-                title="Démonstration SpeakFlow" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    `;
-});
-</script>
-
+      <!-- DEMO SECTION -->
+<section id="demo" class="demo-section container">
+    <h2 class="section-title">
+        🎬 Démonstration vidéo
+    </h2>
+    <div class="demo-container">
+        <div class="demo-card">
+            <p class="demo-description">
+                Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
+            </p>
+            
+            <!-- Ajoute ce placeholder cliquable ici -->
+            <div class="video-placeholder" id="videoPlaceholder" style="cursor: pointer;">
+                <div class="video-content">
+                    <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <p style="color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">Cliquez pour charger la vidéo</p>
+                    <p style="color: #9ca3af; font-size: 0.9rem;">Démonstration SpeakFlow</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- CTA Section -->
         <section class="cta container">

@@ -853,16 +853,33 @@
                         Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
                     </p>
                     
-                    <!-- YouTube Video Placeholder -->
-                    <div class="video-placeholder">
-                        <div class="video-content">
-                            <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            <p style="color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">Vidéo de démonstration YouTube</p>
-                            <p style="color: #9ca3af; font-size: 0.9rem;">Remplacez par votre URL de démonstration</p>
-                        </div>
-                    </div>
+                    <!-- Placeholder initial -->
+<div class="video-placeholder" id="videoPlaceholder">
+    <div class="video-content">
+        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <p style="color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">Cliquez pour charger la vidéo</p>
+        <p style="color: #9ca3af; font-size: 0.9rem;">Démonstration SpeakFlow</p>
+    </div>
+</div>
+
+<script>
+document.getElementById('videoPlaceholder').addEventListener('click', function() {
+    this.innerHTML = `
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem;">
+            <iframe 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.5rem;"
+                src="https://www.youtube.com/embed/7Bg_Rk7bB4w?autoplay=1" 
+                title="Démonstration SpeakFlow" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    `;
+});
+</script>
 
                     <!-- YouTube Video Embed -->
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; margin-bottom: 1.5rem;">
@@ -941,6 +958,7 @@
     </script>
 </body>
 </html>
+
 
 
 

@@ -853,16 +853,23 @@
                 Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
             </p>
             
-            <!-- Ajoute ce placeholder cliquable ici -->
-            <div class="video-placeholder" id="videoPlaceholder" style="cursor: pointer;">
-                <div class="video-content">
-                    <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    <p style="color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">Cliquez pour charger la vidéo</p>
-                    <p style="color: #9ca3af; font-size: 0.9rem;">Démonstration SpeakFlow</p>
-                </div>
-            </div>
+            <script>
+                const videoPlaceholder = document.getElementById('videoPlaceholder');
+                videoPlaceholder.addEventListener('click', function() {
+                    // Remplace le contenu du placeholder par un iframe YouTube
+                    videoPlaceholer.innerHTML =
+                        <iframe 
+                            width="100%" 
+                            height="400" 
+                            src="https://www.youtube.com/embed/7Bg_Rk7bB4w?autoplay=1" 
+                            title="Démonstration SpeakFlow" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    ;
+                });
+            </sccript>
         </div>
     </div>
 </section>
@@ -929,6 +936,7 @@
     </script>
 </body>
 </html>
+
 
 
 

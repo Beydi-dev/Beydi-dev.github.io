@@ -842,7 +842,7 @@
             </div>
         </section>
 
-      <!-- DEMO SECTION -->
+<!-- DEMO SECTION -->
 <section id="demo" class="demo-section container">
     <h2 class="section-title">
         🎬 Démonstration vidéo
@@ -853,26 +853,47 @@
                 Découvrez SpeakFlow en action dans cette démonstration complète des fonctionnalités clés de la plateforme.
             </p>
             
-            <script>
-                const videoPlaceholder = document.getElementById('videoPlaceholder');
-                videoPlaceholder.addEventListener('click', function() {
-                    // Remplace le contenu du placeholder par un iframe YouTube
-                    videoPlaceholer.innerHTML =
-                        <iframe 
-                            width="100%" 
-                            height="400" 
-                            src="https://www.youtube.com/embed/7Bg_Rk7bB4w?autoplay=1" 
-                            title="Démonstration SpeakFlow" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    ;
-                });
-            </sccript>
+            <!-- Placeholder vidéo cliquable -->
+            <div id="videoPlaceholder" class="video-placeholder">
+                <div class="video-content">
+                    <svg class="play-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <polygon points="5,3 19,12 5,21"></polygon>
+                    </svg>
+                    <p style="color: #6b7280; font-weight: 600;">Cliquez pour lancer la vidéo de démonstration</p>
+                </div>
+            </div>
+            
+            <!-- Lien alternatif -->
+            <p style="margin-top: 1rem;">
+                <a href="https://www.youtube.com/watch?v=7Bg_Rk7bB4w" target="_blank" class="youtube-link">
+                    📺 Voir sur YouTube
+                </a>
+            </p>
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+            // Remplace le contenu du placeholder par un iframe YouTube
+            videoPlaceholder.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    src="https://www.youtube.com/embed/7Bg_Rk7bB4w?autoplay=1" 
+                    title="Démonstration SpeakFlow" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+        });
+    }
+});
+</script>
 
         <!-- CTA Section -->
         <section class="cta container">
@@ -936,6 +957,7 @@
     </script>
 </body>
 </html>
+
 
 
 
